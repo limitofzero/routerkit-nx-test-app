@@ -1,0 +1,141 @@
+{
+  "version": 1,
+  "projects": {
+    "nx-app-for-routerkit": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "apps/nx-app-for-routerkit",
+      "sourceRoot": "apps/nx-app-for-routerkit/src",
+      "prefix": "routerkit-test",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/nx-app-for-routerkit",
+            "index": "apps/nx-app-for-routerkit/src/index.html",
+            "main": "apps/nx-app-for-routerkit/src/main.ts",
+            "polyfills": "apps/nx-app-for-routerkit/src/polyfills.ts",
+            "tsConfig": "apps/nx-app-for-routerkit/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "apps/nx-app-for-routerkit/src/favicon.ico",
+              "apps/nx-app-for-routerkit/src/assets"
+            ],
+            "styles": ["apps/nx-app-for-routerkit/src/styles.css"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/nx-app-for-routerkit/src/environments/environment.ts",
+                  "with": "apps/nx-app-for-routerkit/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "nx-app-for-routerkit:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "nx-app-for-routerkit:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "nx-app-for-routerkit:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/nx-app-for-routerkit/src/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/nx-app-for-routerkit/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "nx-app-for-routerkit-e2e": {
+      "root": "apps/nx-app-for-routerkit-e2e",
+      "sourceRoot": "apps/nx-app-for-routerkit-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/nx-app-for-routerkit-e2e/cypress.json",
+            "tsConfig": "apps/nx-app-for-routerkit-e2e/tsconfig.e2e.json",
+            "devServerTarget": "nx-app-for-routerkit:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "nx-app-for-routerkit:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/nx-app-for-routerkit-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "defaultCollection": "@nrwl/angular"
+  },
+  "schematics": {
+    "@nrwl/angular": {
+      "application": {
+        "linter": "eslint"
+      },
+      "library": {
+        "linter": "eslint"
+      },
+      "storybook-configuration": {
+        "linter": "eslint"
+      }
+    },
+    "@nrwl/angular:application": {
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
+    },
+    "@nrwl/angular:library": {
+      "unitTestRunner": "jest"
+    }
+  },
+  "defaultProject": "nx-app-for-routerkit"
+}
