@@ -22,13 +22,28 @@
       }
     }
   },
-  "projects": {
-    "nx-app-for-routerkit": {
-      "tags": []
+  "cli": {
+    "defaultCollection": "@nrwl/angular"
+  },
+  "generators": {
+    "@nrwl/angular": {
+      "application": {
+        "linter": "eslint"
+      },
+      "library": {
+        "linter": "eslint"
+      },
+      "storybook-configuration": {
+        "linter": "eslint"
+      }
     },
-    "nx-app-for-routerkit-e2e": {
-      "tags": [],
-      "implicitDependencies": ["nx-app-for-routerkit"]
+    "@nrwl/angular:application": {
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
+    },
+    "@nrwl/angular:library": {
+      "unitTestRunner": "jest"
     }
-  }
+  },
+  "defaultProject": "nx-app-for-routerkit"
 }
