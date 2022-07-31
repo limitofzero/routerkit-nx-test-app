@@ -21,7 +21,9 @@
               "apps/nx-app-for-routerkit/src/favicon.ico",
               "apps/nx-app-for-routerkit/src/assets"
             ],
-            "styles": ["apps/nx-app-for-routerkit/src/styles.css"],
+            "styles": [
+              "apps/nx-app-for-routerkit/src/styles.css"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -53,7 +55,9 @@
               ]
             }
           },
-          "outputs": ["{options.outputPath}"]
+          "outputs": [
+            "{options.outputPath}"
+          ]
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
@@ -75,9 +79,13 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["apps/nx-app-for-routerkit/src/**/*.ts"]
+            "lintFilePatterns": [
+              "apps/nx-app-for-routerkit/src/**/*.ts"
+            ]
           },
-          "outputs": ["{options.outputFile}"]
+          "outputs": [
+            "{options.outputFile}"
+          ]
         },
         "test": {
           "builder": "@nrwl/jest:jest",
@@ -85,7 +93,9 @@
             "jestConfig": "apps/nx-app-for-routerkit/jest.config.js",
             "passWithNoTests": true
           },
-          "outputs": ["coverage/apps/nx-app-for-routerkit"]
+          "outputs": [
+            "coverage/apps/nx-app-for-routerkit"
+          ]
         }
       },
       "tags": []
@@ -111,13 +121,19 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["apps/nx-app-for-routerkit-e2e/**/*.{js,ts}"]
+            "lintFilePatterns": [
+              "apps/nx-app-for-routerkit-e2e/**/*.{js,ts}"
+            ]
           },
-          "outputs": ["{options.outputFile}"]
+          "outputs": [
+            "{options.outputFile}"
+          ]
         }
       },
       "tags": [],
-      "implicitDependencies": ["nx-app-for-routerkit"]
+      "implicitDependencies": [
+        "nx-app-for-routerkit"
+      ]
     }
   }
 }
