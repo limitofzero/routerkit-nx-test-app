@@ -1,3 +1,3 @@
-module.exports = {
-  projects: ['<rootDir>/apps/nx-app-for-routerkit'],
-};
+const { getJestProjects } = require('@nrwl/jest');
+
+module.exports = { projects: getJestProjects() };

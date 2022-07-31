@@ -8,7 +8,7 @@ import { RouterModule } from '@angular/router';
   declarations: [AppComponent],
   imports: [
     BrowserModule,
-    RouterModule.forRoot([{ path: 'auth', loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule) }])
+    RouterModule.forRoot([{ path: 'auth', loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule) }], { relativeLinkResolution: 'legacy' })
   ],
   providers: [],
   bootstrap: [AppComponent],
