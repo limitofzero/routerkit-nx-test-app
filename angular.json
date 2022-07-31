@@ -2,6 +2,7 @@
   "version": 1,
   "projects": {
     "nx-app-for-routerkit": {
+      "$schema": "../../node_modules/nx/schemas/project-schema.json",
       "projectType": "application",
       "schematics": {},
       "root": "apps/nx-app-for-routerkit",
@@ -35,7 +36,6 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
               "extractLicenses": true,
               "vendorChunk": false,
@@ -53,7 +53,8 @@
                 }
               ]
             }
-          }
+          },
+          "outputs": ["{options.outputPath}"]
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
@@ -76,19 +77,22 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["apps/nx-app-for-routerkit/src/**/*.ts"]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
-            "jestConfig": "apps/nx-app-for-routerkit/jest.config.js",
+            "jestConfig": "apps/nx-app-for-routerkit/jest.config.ts",
             "passWithNoTests": true
-          }
+          },
+          "outputs": ["coverage/apps/nx-app-for-routerkit"]
         }
       },
       "tags": []
     },
     "nx-app-for-routerkit-e2e": {
+      "$schema": "../../node_modules/nx/schemas/project-schema.json",
       "root": "apps/nx-app-for-routerkit-e2e",
       "sourceRoot": "apps/nx-app-for-routerkit-e2e/src",
       "projectType": "application",
@@ -110,31 +114,12 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["apps/nx-app-for-routerkit-e2e/**/*.{js,ts}"]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         }
       },
       "tags": [],
       "implicitDependencies": ["nx-app-for-routerkit"]
-    }
-  },
-  "schematics": {
-    "@nrwl/angular": {
-      "application": {
-        "linter": "eslint"
-      },
-      "library": {
-        "linter": "eslint"
-      },
-      "storybook-configuration": {
-        "linter": "eslint"
-      }
-    },
-    "@nrwl/angular:application": {
-      "unitTestRunner": "jest",
-      "e2eTestRunner": "cypress"
-    },
-    "@nrwl/angular:library": {
-      "unitTestRunner": "jest"
     }
   }
 }

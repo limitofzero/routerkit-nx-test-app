@@ -16,14 +16,12 @@
   },
   "tasksRunnerOptions": {
     "default": {
-      "runner": "@nrwl/workspace/tasks-runners/default",
+      "runner": "nx/tasks-runners/default",
       "options": {
-        "cacheableOperations": ["build", "lint", "test", "e2e"]
+        "cacheableOperations": ["build", "lint", "test", "e2e"],
+        "parallel": 3
       }
     }
-  },
-  "cli": {
-    "defaultCollection": "@nrwl/angular"
   },
   "generators": {
     "@nrwl/angular": {
@@ -45,5 +43,11 @@
       "unitTestRunner": "jest"
     }
   },
-  "defaultProject": "nx-app-for-routerkit"
+  "defaultProject": "nx-app-for-routerkit",
+  "$schema": "./node_modules/nx/schemas/nx-schema.json",
+  "targetDefaults": {
+    "build": {
+      "dependsOn": ["^build"]
+    }
+  }
 }
