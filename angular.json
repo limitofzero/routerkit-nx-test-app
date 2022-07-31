@@ -2,6 +2,7 @@
   "version": 1,
   "projects": {
     "nx-app-for-routerkit": {
+      "$schema": "../../node_modules/nx/schemas/project-schema.json",
       "projectType": "application",
       "schematics": {},
       "root": "apps/nx-app-for-routerkit",
@@ -21,9 +22,7 @@
               "apps/nx-app-for-routerkit/src/favicon.ico",
               "apps/nx-app-for-routerkit/src/assets"
             ],
-            "styles": [
-              "apps/nx-app-for-routerkit/src/styles.css"
-            ],
+            "styles": ["apps/nx-app-for-routerkit/src/styles.css"],
             "scripts": []
           },
           "configurations": {
@@ -55,9 +54,7 @@
               ]
             }
           },
-          "outputs": [
-            "{options.outputPath}"
-          ]
+          "outputs": ["{options.outputPath}"]
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
@@ -79,13 +76,9 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "apps/nx-app-for-routerkit/src/**/*.ts"
-            ]
+            "lintFilePatterns": ["apps/nx-app-for-routerkit/src/**/*.ts"]
           },
-          "outputs": [
-            "{options.outputFile}"
-          ]
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "builder": "@nrwl/jest:jest",
@@ -93,14 +86,13 @@
             "jestConfig": "apps/nx-app-for-routerkit/jest.config.ts",
             "passWithNoTests": true
           },
-          "outputs": [
-            "coverage/apps/nx-app-for-routerkit"
-          ]
+          "outputs": ["coverage/apps/nx-app-for-routerkit"]
         }
       },
       "tags": []
     },
     "nx-app-for-routerkit-e2e": {
+      "$schema": "../../node_modules/nx/schemas/project-schema.json",
       "root": "apps/nx-app-for-routerkit-e2e",
       "sourceRoot": "apps/nx-app-for-routerkit-e2e/src",
       "projectType": "application",
@@ -121,19 +113,13 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "apps/nx-app-for-routerkit-e2e/**/*.{js,ts}"
-            ]
+            "lintFilePatterns": ["apps/nx-app-for-routerkit-e2e/**/*.{js,ts}"]
           },
-          "outputs": [
-            "{options.outputFile}"
-          ]
+          "outputs": ["{options.outputFile}"]
         }
       },
       "tags": [],
-      "implicitDependencies": [
-        "nx-app-for-routerkit"
-      ]
+      "implicitDependencies": ["nx-app-for-routerkit"]
     }
   }
 }
