@@ -90,7 +90,7 @@
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
-            "jestConfig": "apps/nx-app-for-routerkit/jest.config.js",
+            "jestConfig": "apps/nx-app-for-routerkit/jest.config.ts",
             "passWithNoTests": true
           },
           "outputs": [
